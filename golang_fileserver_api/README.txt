@@ -9,7 +9,7 @@ OPERATION:
 To compile and run the application simply use the command "go run *.go" without the
 quotations from the directory containing main.go. This will then host the server 
 application on localhost:8080. Simply add files to the root directory folder or
-create sub directories inside of it to host the files on the API.
+create sub directories inside of it (up to one level) to host the files on the API.
 
 Note: The gorilla mux Go package is a dependency for this project. Get it by using the
 command "go get github.com/gorilla/mux" without the quotations.
