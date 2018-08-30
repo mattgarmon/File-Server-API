@@ -22,6 +22,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "/files/directory/{directory}/{filename}           download file in sub directory")
 }
 
+//view a file page in the root directory
 func files(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	pageRequest, err := strconv.Atoi(vars["page"])
@@ -33,6 +34,7 @@ func files(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, formatPage("./root/", pageRequest, false))
 }
 
+//view a file page in the sorted root directory
 func filesSorted(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	pageRequest, err := strconv.Atoi(vars["page"])
@@ -44,6 +46,7 @@ func filesSorted(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, formatPage("./root/", pageRequest, true))
 }
 
+//view a file page in a sub directory
 func directoryFiles(w http.ResponseWriter, r *http.Request){
 	vars := mux.Vars(r)
 	path := "./root_directory/" + vars["directory"] + "/"
@@ -56,6 +59,7 @@ func directoryFiles(w http.ResponseWriter, r *http.Request){
 	fmt.Fprintf(w, formatPage(path, pageRequest, false))
 }
 
+//view a file page in a sorted sub directory
 func directoryFilesSorted(w http.ResponseWriter, r *http.Request){
 	vars := mux.Vars(r)
 	pageRequest, err := strconv.Atoi(vars["page"])
@@ -68,6 +72,7 @@ func directoryFilesSorted(w http.ResponseWriter, r *http.Request){
 	fmt.Fprintf(w, formatPage(path, pageRequest, true))
 }
 
+//download a file from the root directory
 func downloadFile(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	filename := vars["filename"]
@@ -83,6 +88,7 @@ func downloadFile(w http.ResponseWriter, r *http.Request) {
 	http.ServeContent(w, r, filename, modtime, bytes.NewReader(content))
 }
 
+//download a file from a directory
 func directoryDownloadFile(w http.ResponseWriter, r *http.Request){
 	vars := mux.Vars(r)
 	filename := vars["filename"]

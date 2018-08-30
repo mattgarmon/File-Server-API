@@ -47,7 +47,7 @@ func formatPage(path string, page int, sorted bool) (s string) {
 		return b.String()
 	}
 	
-	//write page contents
+	//write page contents to buffer
 	b.WriteString(path[2:] + "\n")
 	for _, file := range pages[page-1] {
 		b.WriteString("\n")
@@ -58,5 +58,5 @@ func formatPage(path string, page int, sorted bool) (s string) {
 	}
 	b.WriteString(fmt.Sprintf("\n\nPage %d of %d\n", page, numPages))
 
-	return b.String()
+	return b.String() //return buffer as string
 }
