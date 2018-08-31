@@ -44,7 +44,7 @@ b) Browse files (GET)
     1) Determine root directory or sub directory
     2) Read file info for each file in the reqested directory
     3) Sort by filename if requested
-    4) Page out the files for easier browsing (defualt: 20 per page)
+    4) Page out the files for easier browsing (default: 20 per page)
     5) Serve the requested page with a list of files and current page number
 c) Download file (GET)
     1) Determine if the file is in the root directorty or sub directory
@@ -63,7 +63,7 @@ Some of the tests that would be needed to verify functionality of this API are a
 1) Test many different filetypes and verify that they are downloaded as intended.
 2) Verify that the file system works in it's extreme case. 
    (100K files, 100k directories, 10 GB files)
-3) Test many URLs to verify that the routing is handled correctly for all cases.
+3) Test many HTTP requests to verify that the routing is handled correctly for all cases.
 4) Use a API testing tool such as Postman to verify that the response codes, messages, 
    and bodies are as intended.
 
@@ -73,7 +73,7 @@ MISSING REQUERMENTS:
 
 Some requirements I think are missing from this API design are as follows:
 
-1) To have a proper file system API, the client should also be able to upload files (PUT),
+1) To have a proper file system API, the client should also be able to upload files (POST),
    but this depends on the intended usage.
 2) Allow the file system work with files regardless of the filename (Not just numbers)
 
